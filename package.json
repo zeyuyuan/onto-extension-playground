@@ -9,8 +9,10 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@vueuse/core": "^6.8.0",
     "core-js": "^3.6.5",
-    "vue": "^3.0.0"
+    "vue": "^3.0.0",
+    "web3": "^1.6.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -24,6 +26,7 @@
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^7.0.0",
+    "naive-ui": "^2.20.2",
     "prettier": "^2.2.1",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
