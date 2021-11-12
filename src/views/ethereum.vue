@@ -31,24 +31,14 @@
                 <n-radio value="window.web3">window.web3</n-radio>
                 <n-radio value="Web3.givenProvider">Web3.givenProvider</n-radio>
               </n-space>
-              <n-button @click="logProvider">log</n-button>
-            </n-radio-group>
-          </n-thing>
-        </n-list-item>
-        <n-list-item>
-          <n-thing title="Select SDK type">
-            <n-radio-group v-model:value="sdkType" name="sdkGroup">
-              <n-space>
-                <n-radio value="window.ethereum">window.ethereum</n-radio>
-                <n-radio value="ethers">ethers</n-radio>
-                <n-radio value="web3">web3</n-radio>
-              </n-space>
             </n-radio-group>
           </n-thing>
         </n-list-item>
         <RequestAccounts />
         <Enable />
         <ChainId />
+        <Accounts />
+        <Estimate />
       </n-list>
     </div>
   </n-notification-provider>
@@ -66,11 +56,12 @@ import {
   NGridItem,
   useNotification,
   NNotificationProvider,
-  NButton,
 } from "naive-ui";
 import { onMounted, provide, ref, watch, computed } from "vue";
+import Accounts from "../components/Accounts.vue";
 import ChainId from "../components/ChainId.vue";
 import Enable from "../components/Enable.vue";
+import Estimate from "../components/Estimate.vue";
 import RequestAccounts from "../components/RequestAccounts.vue";
 import Web3 from "web3";
 import { useLocalStorage } from "@vueuse/core";
@@ -84,9 +75,8 @@ const getProvider = (providerType) => {
   };
   return map[providerType];
 };
-console.log(Web3.utils.numberToHex(1));
+
 const providerType = useLocalStorage("provider-type", "window.ethereum");
-const sdkType = useLocalStorage("sdk-type", "window.ethereum");
 const provider = computed(() => getProvider(providerType.value));
 const account = ref("");
 const chainId = ref("");
@@ -137,10 +127,6 @@ watch(
     listenConnect();
   }
 );
-
-const logProvider = () => {
-  console.log(provider.value);
-};
 
 onMounted(() => {
   listenConnect();
