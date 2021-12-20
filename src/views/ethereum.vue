@@ -39,6 +39,8 @@
         <ChainId />
         <Accounts />
         <Estimate />
+        <EthCall />
+        <BlockNumber />
       </n-list>
     </div>
   </n-notification-provider>
@@ -59,9 +61,11 @@ import {
 } from "naive-ui";
 import { onMounted, provide, ref, watch, computed } from "vue";
 import Accounts from "../components/Accounts.vue";
+import BlockNumber from "../components/BlockNumber.vue";
 import ChainId from "../components/ChainId.vue";
 import Enable from "../components/Enable.vue";
 import Estimate from "../components/Estimate.vue";
+import EthCall from "../components/EthCall.vue";
 import RequestAccounts from "../components/RequestAccounts.vue";
 import Web3 from "web3";
 import { useLocalStorage } from "@vueuse/core";
