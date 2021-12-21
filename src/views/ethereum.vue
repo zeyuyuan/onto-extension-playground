@@ -41,6 +41,8 @@
         <Estimate />
         <EthCall />
         <BlockNumber />
+        <SignTransaction />
+        <GasPrice />
       </n-list>
     </div>
   </n-notification-provider>
@@ -69,6 +71,8 @@ import EthCall from "../components/EthCall.vue";
 import RequestAccounts from "../components/RequestAccounts.vue";
 import Web3 from "web3";
 import { useLocalStorage } from "@vueuse/core";
+import SignTransaction from "../components/SignTransaction";
+import GasPrice from "../components/GasPrice";
 
 const getProvider = (providerType) => {
   const map = {
