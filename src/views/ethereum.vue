@@ -29,7 +29,6 @@
               <n-space>
                 <n-radio value="window.ethereum">window.ethereum</n-radio>
                 <n-radio value="window.onto">window.onto</n-radio>
-                <n-radio value="window.web3">window.web3</n-radio>
                 <n-radio value="Web3.givenProvider">Web3.givenProvider</n-radio>
               </n-space>
             </n-radio-group>
@@ -82,7 +81,6 @@ const getProvider = (providerType) => {
   const map = {
     "window.ethereum": window.ethereum,
     "window.onto": window.onto,
-    "window.web3": window.web3,
     "Web3.givenProvider": Web3.givenProvider,
   };
   return map[providerType];
