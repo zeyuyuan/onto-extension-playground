@@ -2,6 +2,7 @@
   <n-notification-provider>
     <div class="layout">
       <n-list bordered>
+        <FormatTool />
         <n-list-item>
           <n-thing title="Listen connect status...">
             <n-grid :x-gap="30" :cols="7">
@@ -43,6 +44,7 @@
         <BlockNumber />
         <SignTransaction />
         <GasPrice />
+        <PersonalSign />
       </n-list>
     </div>
   </n-notification-provider>
@@ -73,6 +75,8 @@ import Web3 from "web3";
 import { useLocalStorage } from "@vueuse/core";
 import SignTransaction from "../components/SignTransaction";
 import GasPrice from "../components/GasPrice";
+import FormatTool from "../components/FormatTool";
+import PersonalSign from "../components/PersonalSign";
 
 const getProvider = (providerType) => {
   const map = {
