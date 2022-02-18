@@ -44,6 +44,7 @@
         <SignTransaction />
         <GasPrice />
         <PersonalSign />
+        <LegacySign />
       </n-list>
     </div>
   </n-notification-provider>
@@ -76,6 +77,7 @@ import SignTransaction from "../components/SignTransaction";
 import GasPrice from "../components/GasPrice";
 import FormatTool from "../components/FormatTool";
 import PersonalSign from "../components/PersonalSign";
+import LegacySign from "../components/LegacySign";
 
 const getProvider = (providerType) => {
   const map = {
