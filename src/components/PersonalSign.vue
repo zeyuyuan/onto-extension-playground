@@ -32,7 +32,7 @@ const personalSignWithWeb3 = async () => {
   const web3 = new Web3(injectedProvider.value);
   const result = await web3.eth.personal.sign(
     messageToSign.value,
-    "0xa96F919b23D98695263E62591aede3a5467BF1fA",
+    injectedProvider.value.selectedAddress,
     ""
   );
   web3Result.value = result;

@@ -45,6 +45,7 @@
         <GasPrice />
         <PersonalSign />
         <LegacySign />
+        <GetEncryptionPublicKey />
       </n-list>
     </div>
   </n-notification-provider>
@@ -78,6 +79,7 @@ import GasPrice from "../components/GasPrice";
 import FormatTool from "../components/FormatTool";
 import PersonalSign from "../components/PersonalSign";
 import LegacySign from "../components/LegacySign";
+import GetEncryptionPublicKey from "../components/GetEncryptionPublicKey";
 
 const getProvider = (providerType) => {
   const map = {
