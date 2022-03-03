@@ -51,6 +51,7 @@ const signTransactionWithWeb3 = async () => {
   const instance = await contract.methods.approve(account, "100000000");
   const result = await instance.send({
     from: account,
+    value: "0",
   });
   web3Result.value = result;
   console.log("signTransactionWithWeb3", result);

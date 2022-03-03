@@ -1,5 +1,5 @@
 <template>
-  <n-list-item>
+  <n-list-item id="eth_requestAccounts">
     <n-thing title="eth_requestAccounts">
       <n-button @click="nativeConnect">Connect Wallet</n-button>
     </n-thing>
