@@ -76,22 +76,22 @@ import {
   useNotification,
 } from "naive-ui";
 import { onMounted, provide, ref, watch, computed } from "vue";
-import Accounts from "../components/Accounts.vue";
-import BlockNumber from "../components/BlockNumber.vue";
-import ChainId from "../components/ChainId.vue";
-import Enable from "../components/Enable.vue";
-import Estimate from "../components/Estimate.vue";
-import EthCall from "../components/EthCall.vue";
-import RequestAccounts from "../components/RequestAccounts.vue";
+import Accounts from "../components/eth/Accounts.vue";
+import BlockNumber from "../components/eth/BlockNumber.vue";
+import ChainId from "../components/eth/ChainId.vue";
+import Enable from "../components/eth/Enable.vue";
+import Estimate from "../components/eth/Estimate.vue";
+import EthCall from "../components/eth/EthCall.vue";
+import RequestAccounts from "../components/eth/RequestAccounts.vue";
 import Web3 from "web3";
 import { useLocalStorage } from "@vueuse/core";
-import SignTransaction from "../components/SignTransaction";
-import GasPrice from "../components/GasPrice";
-import FormatTool from "../components/FormatTool";
-import PersonalSign from "../components/PersonalSign";
-import LegacySign from "../components/LegacySign";
-import GetEncryptionPublicKey from "../components/GetEncryptionPublicKey";
-import BaseLayout from "../components/BaseLayout";
+import SignTransaction from "../components/eth/SignTransaction";
+import GasPrice from "../components/eth/GasPrice";
+import FormatTool from "../components/eth/FormatTool";
+import PersonalSign from "../components/eth/PersonalSign";
+import LegacySign from "../components/eth/LegacySign";
+import GetEncryptionPublicKey from "../components/eth/GetEncryptionPublicKey";
+import BaseLayout from "../components/eth/BaseLayout";
 
 const getProvider = (providerType) => {
   const map = {

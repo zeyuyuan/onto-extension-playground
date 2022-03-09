@@ -1,20 +1,35 @@
 <template>
-  <n-notification-provider>
-    <div class="layout">
-      <n-list bordered>
-        <n-list-item>
-          <n-thing title="test connect">
-            <n-button @click="connect">Connect</n-button>
-          </n-thing>
-        </n-list-item>
-        <n-list-item>
-          <n-thing title="test send ont">
-            <n-button @click="sendOnt">Send ONT</n-button>
-          </n-thing>
-        </n-list-item>
-      </n-list>
-    </div>
-  </n-notification-provider>
+  <BaseLayout>
+    <template v-slot:menu>
+      <n-anchor
+        listen-to=".layout__right"
+        :bound="24"
+        :show-rail="false"
+        type="block"
+      >
+        <n-anchor-link title="connect" href="#ont_connect" />
+        <n-anchor-link title="asset.send" href="#asset_send" />
+        <n-anchor-link title="asset.sendV2" href="#asset_send_v2" />
+        <n-anchor-link title="滚动到" href="#scrollto" />
+      </n-anchor>
+    </template>
+    <n-list bordered>
+      <n-list-item>
+        <n-thing id="ont_connect" title="test connect">
+          <n-space v-if="account">
+            <span>{{ isCyano ? "Cyano" : "ONTO" }}</span>
+            <span>{{ account }}</span>
+          </n-space>
+          <n-space v-else>
+            <n-button @click="connectOnto">Connect ONTO</n-button>
+            <n-button @click="connectCyano">Connect Cyano</n-button>
+          </n-space>
+        </n-thing>
+      </n-list-item>
+      <LegacySend id="asset_send" />
+      <SendV2 id="asset_send_v2" />
+    </n-list>
+  </BaseLayout>
 </template>
 
 <script setup>
@@ -23,50 +38,39 @@ import {
   NListItem,
   NThing,
   NButton,
-  // NSpace,
-  // NRadio,
-  // NRadioGroup,
-  // NGrid,
-  // NGridItem,
-  // useNotification,
-  NNotificationProvider,
+  NSpace,
+  NAnchor,
+  NAnchorLink,
 } from "naive-ui";
 import { client, ExtensionType } from "@ont-dev/ontology-dapi";
-import { ref } from "vue";
+import { provide, ref } from "vue";
+import BaseLayout from "../components/eth/BaseLayout";
+import LegacySend from "../components/ont/LegacySend";
+import SendV2 from "../components/ont/SendV2";
 
-const ontoClient = ref(null);
+const connectedClient = ref(null);
 const account = ref("");
+const isCyano = ref(false);
+provide("connectedClient", connectedClient);
+provide("account", account);
 
-const connect = async () => {
-  ontoClient.value = client.registerClient({
+const connectOnto = async () => {
+  connectedClient.value = client.registerClient({
+    logMessages: true,
+    logWarnings: true,
+    extension: ExtensionType.Onto,
+  });
+  account.value = await connectedClient.value.asset.getAccount();
+  isCyano.value = false;
+};
+
+const connectCyano = async () => {
+  connectedClient.value = client.registerClient({
     logMessages: true,
     logWarnings: true,
     extension: ExtensionType.Cyano,
   });
-  account.value = await ontoClient.value.asset.getAccount();
-};
-
-const sendOnt = async () => {
-  if (!ontoClient.value) {
-    throw new Error("connect first");
-  }
-  const re = await ontoClient.value.network.getBalanceV2({
-    address: account.value,
-  });
-  console.log(re);
-  const result = await ontoClient.value.asset.sendV2({
-    to: "AavQvmUXJBebmpahnXbXMu1cs1JuFtCYkd",
-    asset: "ONG",
-    amount: String(2),
-    // amount: "100000000000000000",
-  });
-  console.log("result", result);
+  account.value = await connectedClient.value.asset.getAccount();
+  isCyano.value = true;
 };
 </script>
-
-<style lang="scss">
-.layout {
-  max-width: 800px;
-  margin: 50px auto;
-}
-</style>
