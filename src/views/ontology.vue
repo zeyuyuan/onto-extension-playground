@@ -28,6 +28,7 @@
       </n-list-item>
       <LegacySend id="asset_send" />
       <SendV2 id="asset_send_v2" />
+      <SendGovernance />
     </n-list>
   </BaseLayout>
 </template>
@@ -47,6 +48,7 @@ import { provide, ref } from "vue";
 import BaseLayout from "../components/eth/BaseLayout";
 import LegacySend from "../components/ont/LegacySend";
 import SendV2 from "../components/ont/SendV2";
+import SendGovernance from "../components/ont/SendGovernance";
 
 const connectedClient = ref(null);
 const account = ref("");
