@@ -57,8 +57,8 @@ const gasPrice = ref("");
 
 const getGas = () => {
   return {
-    gasPrice: gasPrice.value || undefined,
-    gasLimit: gasLimit.value || undefined,
+    gasPrice: Number(gasPrice.value) || undefined,
+    gasLimit: Number(gasLimit.value) || undefined,
   };
 };
 
