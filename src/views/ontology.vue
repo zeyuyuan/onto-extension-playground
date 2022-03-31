@@ -12,6 +12,7 @@
         <n-anchor-link title="asset.sendV2" href="#asset_send_v2" />
         <n-anchor-link title="Governance" href="#governance" />
         <n-anchor-link title="message.signMessage" href="#sign_message" />
+        <n-anchor-link title="smartContract" href="#invoke_contract" />
       </n-anchor>
     </template>
     <n-list bordered>
@@ -31,6 +32,7 @@
       <SendV2 id="asset_send_v2" />
       <SendGovernance id="governance" />
       <SignMessage id="sign_message" />
+      <InvokeContract id="invoke_contract" />
     </n-list>
   </BaseLayout>
 </template>
@@ -52,6 +54,7 @@ import LegacySend from "../components/ont/LegacySend";
 import SendV2 from "../components/ont/SendV2";
 import SendGovernance from "../components/ont/SendGovernance";
 import SignMessage from "../components/ont/SignMessage";
+import InvokeContract from "../components/ont/InvokeContract";
 
 const connectedClient = ref(null);
 const account = ref("");
