@@ -10,7 +10,8 @@
         <n-anchor-link title="connect" href="#ont_connect" />
         <n-anchor-link title="asset.send" href="#asset_send" />
         <n-anchor-link title="asset.sendV2" href="#asset_send_v2" />
-        <n-anchor-link title="滚动到" href="#scrollto" />
+        <n-anchor-link title="Governance" href="#governance" />
+        <n-anchor-link title="message.signMessage" href="#sign_message" />
       </n-anchor>
     </template>
     <n-list bordered>
@@ -28,7 +29,8 @@
       </n-list-item>
       <LegacySend id="asset_send" />
       <SendV2 id="asset_send_v2" />
-      <SendGovernance />
+      <SendGovernance id="governance" />
+      <SignMessage id="sign_message" />
     </n-list>
   </BaseLayout>
 </template>
@@ -49,6 +51,7 @@ import BaseLayout from "../components/eth/BaseLayout";
 import LegacySend from "../components/ont/LegacySend";
 import SendV2 from "../components/ont/SendV2";
 import SendGovernance from "../components/ont/SendGovernance";
+import SignMessage from "../components/ont/SignMessage";
 
 const connectedClient = ref(null);
 const account = ref("");
