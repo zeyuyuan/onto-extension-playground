@@ -128,6 +128,7 @@ const listenConnect = () => {
       title: "Error",
       content: "Provider not found",
     });
+    return;
   }
   currentProvider.on("connect", (info) => {
     addEvent("connect", info, type);
