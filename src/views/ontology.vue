@@ -30,6 +30,8 @@
       </n-list-item>
       <LegacySend id="asset_send" />
       <SendV2 id="asset_send_v2" />
+      <AssetApprove id="asset_approve" />
+      <GetAllowance id="get_allowance" />
       <SendGovernance id="governance" />
       <SignMessage id="sign_message" />
       <InvokeContract id="invoke_contract" />
@@ -55,6 +57,8 @@ import SendV2 from "../components/ont/SendV2";
 import SendGovernance from "../components/ont/SendGovernance";
 import SignMessage from "../components/ont/SignMessage";
 import InvokeContract from "../components/ont/InvokeContract";
+import AssetApprove from "../components/ont/AssetApprove.vue";
+import GetAllowance from "../components/ont/GetAllowance.vue";
 
 const connectedClient = ref(null);
 const account = ref("");
